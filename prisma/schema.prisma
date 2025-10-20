@@ -1,14 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  // url      = "file:./dev.db"
-  url      = env("DATABASE_URL") // Change to "file:./dev.db" for local development with sqlite
+  provider = "sqlite"
+  url      = "file:./dev.db"
+  //url      = env("DATABASE_URL") // Change to "file:./dev.db" for local development with sqlite
 }
 
 model Talk {
@@ -19,7 +16,7 @@ model Talk {
   description     String?
   longDescription String?
   year            Int
-  tag             String?
+  tag             String
   conference      String
   duration        Int?
   videoUrl        String?
